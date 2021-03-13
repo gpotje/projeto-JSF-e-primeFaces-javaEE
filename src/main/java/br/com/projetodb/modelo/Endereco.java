@@ -57,9 +57,8 @@ public class Endereco implements Serializable {
 	public void setNumeroLocalidade(String numeroLocalidade) {
 		this.numeroLocalidade = numeroLocalidade;
 	}
-	
-	
 
+	
 	public Pessoa getPessoa() {
 		return pessoa;
 	}
@@ -73,7 +72,7 @@ public class Endereco implements Serializable {
 		return "Endereco [idEndereco=" + idEndereco + ", logradouro=" + logradouro + ", cep=" + cep
 				+ ", numeroLocalidade=" + numeroLocalidade + ", pessoa=" + pessoa + "]";
 	}
-
+		
 	
 
 }

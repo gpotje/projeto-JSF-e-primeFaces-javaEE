@@ -36,7 +36,7 @@ public class dadoDao {
 
 	
 	public List<Pessoa> listar() {
-		String jpql = "select distinct(p) from Pessoa p"
+		String jpql = "select p from Pessoa p"
    + " join fetch p.end";
 
 		return manager.createQuery(jpql, Pessoa.class).getResultList();

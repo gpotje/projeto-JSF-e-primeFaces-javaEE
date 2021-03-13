@@ -17,11 +17,9 @@ public class PessoaBean {
 	private Pessoa pessoa = new Pessoa();
 
 	private Endereco endereco = new Endereco();
-	
+
 	private List<Endereco> enderecoLista = new ArrayList<>();
-	
-	
-	
+
 	@Inject
 	private dadoDao dao;
 
@@ -31,37 +29,16 @@ public class PessoaBean {
 		dao.salvarPessoa(pessoa);
 		endereco.setPessoa(pessoa);
 		dao.salvarEndereco(endereco);
-		
-//		for (Endereco enderecoLis : enderecoLista) {
-//			enderecoLis.setPessoa(pessoa);
-//			System.out.println(endereco.toString());
-//			dao.salvarEndereco(enderecoLis);
-//		}
-		
-		
+
 		System.out.println(pessoa.toString());
 		System.out.println(endereco.toString());
-		
+
 		return "/pessoa/listar?faces-redirect=true";
 
 	}
-	
-	
-//	public void addNovoEndereco() {
-//		
-//		
-//		enderecoLista.add(endereco);
-//		
-//		System.out.println("2" + endereco.toString());
-//		this.endereco = new Endereco(); 
-//		System.out.println("3" + endereco.toString());
-//		
-//	}
-	
-	
 
 	public void teste() {
-			System.out.println("funciona");
+		System.out.println("funciona");
 	}
 
 	public Pessoa getPessoa() {
@@ -87,10 +64,5 @@ public class PessoaBean {
 	public void setEnderecoLista(List<Endereco> enderecoLista) {
 		this.enderecoLista = enderecoLista;
 	}
-
-	
-	
-	
-	
 
 }
