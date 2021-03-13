@@ -45,7 +45,7 @@ public class PessoaBean {
 	}
 
 	public void teste() {
-
+			System.out.println("funciona");
 	}
 
 	public Pessoa getPessoa() {
@@ -54,6 +54,14 @@ public class PessoaBean {
 
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
+	}
+
+	public Endereco getEndereco() {
+		return endereco;
+	}
+
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
 	}
 
 	
