@@ -1,9 +1,12 @@
 package br.com.projetodb.dao;
 
+import java.awt.Window.Type;
 import java.util.List;
 
+import javax.enterprise.inject.Typed;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.criteria.CriteriaQuery;
 
 import br.com.projetodb.modelo.Endereco;
 import br.com.projetodb.modelo.Pessoa;
@@ -20,15 +23,25 @@ public class dadoDao {
 		manager.persist(e);
 	}
 	
+	public List<Pessoa> listaTodasPessoas() {
+		
+		CriteriaQuery<Pessoa> query = manager.getCriteriaBuilder().createQuery(Pessoa.class);
+		query.select(query.from(Pessoa.class));
+
+		List<Pessoa> lista = manager.createQuery(query).getResultList();
+
+		manager.close();
+		return lista;
+	}
 
 	
-	
-
 	public List<Pessoa> listar() {
-		String jpql = "select distinct(l) from tb_pessoa l" 
-	+ " join fetch l.tb_endereco";
+		String jpql = "select l from Pessoa l";
+  // + " join fetch l.Endereco";
 
 		return manager.createQuery(jpql, Pessoa.class).getResultList();
+		
+		
 	}
 
 }

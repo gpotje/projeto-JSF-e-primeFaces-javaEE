@@ -6,24 +6,30 @@
 	xmlns:p="http://primefaces.org/ui">
 
 
- <h:form id="formTabelPessoas">
-    <p:dataList value="#{pessoaBean.pessoa}" var="pessoa" type="ordered">
-        <f:facet name="header">
-           Pessoa
-        </f:facet>
 
-        <h:commandLink styleClass="ui-icon ui-icon-pencil" style="float:left;margin-right:10px">
-            <f:setPropertyActionListener value="#{pessoa}" target="#{pessoaBean.pessoa}" />
-        </h:commandLink>
+	<h:dataTable value="#{listaPessoaBean.pessoas}" var="pessoas" id="pessoaendereco">
+		<h:column>
+			<f:facet name="header">Name</f:facet>
+			<h:outputText value="#{pessoas.name}" />
+		</h:column>
+		<h:column>
+			<f:facet name="header">Email</f:facet>
+			<h:outputText value="#{pessoas.email}" />
+		</h:column>
+		
+		<h:column>
+			<f:facet name="header">Alterar</f:facet>
+			<h:commandLink value="altera" action="#{livroBean.carregar(livro)}" />
+		</h:column>
 
-         <h:commandLink styleClass="ui-icon ui-icon-trash" style="float:left;margin-right:10px" 
-             />
+		<h:column>
+			<f:facet name="header">Remover</f:facet>
+			<h:commandLink value="remove" action="#{livroBean.remover(livro)}" />
+		</h:column>
+	</h:dataTable>
 
-        #{pessoa.name} - #{pessoa.email}
-    </p:dataList>
-    
-    
-	
-</h:form>
+
+
+
 
 </html>
