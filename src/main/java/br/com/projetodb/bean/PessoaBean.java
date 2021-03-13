@@ -1,5 +1,7 @@
 package br.com.projetodb.bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -15,25 +17,36 @@ import br.com.projetodb.modelo.Pessoa;
 @Named
 @RequestScoped
 public class PessoaBean {
+
+	private Pessoa pessoa = new Pessoa();
+
+	private Endereco endereco = new Endereco();
 	
-	private Pessoa pessoa =  new Pessoa();
 
 	@Inject
 	private dadoDao dao;
 
-	
-	@Inject
-	private Endereco endereco;
-	
 	@Transactional
-	public void salvarFomulario() {
-		
+	public String salvarFomulario() {
+
 		dao.salvarPessoa(pessoa);
-		System.out.println(pessoa.toString());
+		endereco.setPessoa(pessoa);
+//		if(endereco2 == null) {
+//			dao.salvarEndereco(endereco);
+//		}
+//		endereco2.setPessoa(pessoa);
+		dao.salvarEndereco(endereco);
 		
-		//return "/pessoa/listar?faces-redirect=true";
+		System.out.println(pessoa.toString());
+		System.out.println(endereco.toString());
+		
+		return "/pessoa/listar?faces-redirect=true";
+
 	}
-	
+
+	public void teste() {
+
+	}
 
 	public Pessoa getPessoa() {
 		return pessoa;
@@ -43,18 +56,8 @@ public class PessoaBean {
 		this.pessoa = pessoa;
 	}
 
-	public Endereco getEndereco() {
-		return endereco;
-	}
+	
 
-	public void setEndereco(Endereco endereco) {
-		this.endereco = endereco;
-	}
-	
-	
-	
-	
-	
 	
 	
 

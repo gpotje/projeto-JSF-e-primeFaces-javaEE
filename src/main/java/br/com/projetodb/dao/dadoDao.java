@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import br.com.projetodb.modelo.Endereco;
 import br.com.projetodb.modelo.Pessoa;
 
 public class dadoDao {
@@ -15,6 +16,13 @@ public class dadoDao {
 	public void salvarPessoa(Pessoa p) {
 		manager.persist(p);
 	}
+	public void salvarEndereco(Endereco e) {
+		manager.persist(e);
+	}
+	
+
+	
+	
 
 	public List<Pessoa> listar() {
 		String jpql = "select distinct(l) from tb_pessoa l" 

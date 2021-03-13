@@ -57,6 +57,16 @@ public class Endereco implements Serializable {
 	public void setNumeroLocalidade(String numeroLocalidade) {
 		this.numeroLocalidade = numeroLocalidade;
 	}
+	
+	
+
+	public Pessoa getPessoa() {
+		return pessoa;
+	}
+
+	public void setPessoa(Pessoa pessoa) {
+		this.pessoa = pessoa;
+	}
 
 	@Override
 	public String toString() {
