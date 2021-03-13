@@ -22,4 +22,10 @@ public class ListaPessoaBean {
     	
         return pessoas;
     }
+
+	public void setPessoas(List<Pessoa> pessoas) {
+		this.pessoas = pessoas;
+	}
+    
+    
 }
