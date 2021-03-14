@@ -29,7 +29,7 @@ public class Pessoa implements Serializable {
 	private Integer numeroTelefone;
 	private String email;
 
-	@OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	List<Endereco> end = new ArrayList<>();
 
 	public Long getIdPessoa() {

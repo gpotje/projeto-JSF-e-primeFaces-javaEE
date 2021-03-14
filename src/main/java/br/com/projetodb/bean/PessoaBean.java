@@ -17,7 +17,7 @@ public class PessoaBean {
 	private Pessoa pessoa = new Pessoa();
 
 	private Endereco endereco = new Endereco();
-
+	
 	private List<Endereco> enderecoLista = new ArrayList<>();
 
 	@Inject
@@ -33,15 +33,22 @@ public class PessoaBean {
 		System.out.println(pessoa.toString());
 		System.out.println(endereco.toString());
 
-		return "/pessoa/listar?faces-redirect=true";
+		return "/pessoa/listarPessoa?faces-redirect=true";
 
 	}
-
+	
+	public void AlteraPessoa(Pessoa p) {
+		System.out.println(""+p.toString());
+    	System.out.println("Carregando livro");
+    	this.pessoa = p;
+    	System.out.println(pessoa.toString());
+    }
+	
 	public void teste() {
 		System.out.println("funciona");
 	}
-	public void teste2(Pessoa p) {
-		System.out.println("funciona");
+	public void AddNovoEndereco() {
+		
 	}
 
 	public Pessoa getPessoa() {

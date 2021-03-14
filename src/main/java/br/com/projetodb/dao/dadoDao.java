@@ -16,7 +16,7 @@ public class dadoDao {
 
 	public void salvarPessoa(Pessoa p) {
 		manager.persist(p);
-	}
+	} 
 
 	public void salvarEndereco(Endereco e) {
 		manager.persist(e);

@@ -7,7 +7,52 @@
 
 <h:head></h:head>
 
-<h:body>
+<h:body>  
+ 
+	<h:form id="cadastroPessoa">
+		<p:fieldset legend="Cadastro Pessoa">
+			<h:panelGrid columns="3">
+
+				<p:outputLabel value="name:" />
+				<p:inputText value="#{listaPessoaBean.pessoa.name}" required="true"
+					id="name" />
+				<p:message for="name" id="messagename" />
+
+				<p:outputLabel value="Email:" />
+				<p:inputText value="#{listaPessoaBean.pessoa.email}" required="true"
+					id="email" />
+				<p:message for="email" id="messageemail" />
+
+				<p:outputLabel value="Telefone:" />
+				<p:inputText value="#{listaPessoaBean.pessoa.numeroTelefone}"
+					required="true" id="telefone" />
+				<p:message for="telefone" id="messagetelefone" />
+
+
+<!-- 				<p:outputLabel value="Logradouro:" /> -->
+<!-- 				<p:inputText value="#{listaPessoaBean.endereco.logradouro}" -->
+<!-- 					required="true" id="logradouro" /> -->
+<!-- 				<p:message for="logradouro" id="messagelogradouro" /> -->
+
+<!-- 				<p:outputLabel value="CEP:" /> -->
+<!-- 				<p:inputText value="#{listaPessoaBean.endereco.cep}" required="true" -->
+<!-- 					id="cep" /> -->
+<!-- 				<p:message for="cep" id="messagecep" /> -->
+
+<!-- 				<p:outputLabel value="N °:" /> -->
+<!-- 				<p:inputText value="#{listaPessoaBean.endereco.numeroLocalidade}" -->
+<!-- 					required="true" id="n" /> -->
+<!-- 				<p:message for="n" id="messagen" /> -->
+
+
+				<p:commandButton value="Salvar fomulario"
+					action="#{listaPessoaBean.salvarFomulario}" update="@form"
+					process="@form" />
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+
+
 	<h:form id="cadastroEndereco3">
 		<p:dataTable value="#{listaPessoaBean.pessoas}" var="pessoa"
 			id="pessoaendereco">
@@ -34,7 +79,7 @@
 					<h:outputText value="#{pessoalist.cep}" />
 				</ui:repeat>
 			</p:column>
-
+ 
 			<p:column>
 				<f:facet name="header">Logradouro:</f:facet>
 				<ui:repeat var="pessoalist" value="#{pessoa.end}">
@@ -64,14 +109,14 @@
 
 			<p:column>
 				<p:commandButton value="Altera "
-					action="#{listaPessoaBean.teste2(pessoa)}" update="@form"
+					action="#{listaPessoaBean.AlteraPessoa(pessoa)}" update="@form"
 					process="@form" />
 			</p:column>
 
 
 		</p:dataTable>
 	</h:form>
-
+ 
 
 </h:body>
 </html>
