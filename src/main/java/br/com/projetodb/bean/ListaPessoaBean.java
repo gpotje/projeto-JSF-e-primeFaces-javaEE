@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.enterprise.inject.Model;
+import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 
@@ -17,7 +18,7 @@ public class ListaPessoaBean {
 	 @Inject
      private dadoDao dao;
 	 
-	private Pessoa pessoa = new Pessoa();
+	private Pessoa pessoa;
 
 	private Endereco endereco = new Endereco();
 	
@@ -29,27 +30,41 @@ public class ListaPessoaBean {
         return pessoas;
     }
     
-    @Transactional
-	public String salvarFomulario() {
-
-		dao.salvarPessoa(pessoa);
-
-		System.out.println(pessoa.toString());
-		System.out.println(endereco.toString());
-
-		return "/pessoa/listarPessoa?faces-redirect=true";
-
-	}
-    public void AlteraPessoa(Pessoa p) {
-    	System.out.println("Carregando livro");
+   
+    public void alteraPessoa(Pessoa p) {
+    	System.out.println("funciona");
+    	//System.out.println("" +p);
+		this.pessoa = p;
     	
+    }
+    public void alteraPessoa2() {
+    	System.out.println("funciona");
     	
     	
     }
+//    public String AddEndereco(Pessoa p) {
+//    	System.out.println("funciona");
+//    	
+//    	FacesContext.getCurrentInstance().getExternalContext()
+//    	.getFlash().put("pessoa", p);
+//    	
+//    	return "/pessoa/AddEndereco?faces-redirect=true";
+//    	
+//    }
+    
+    public String editaPessoa(Pessoa pessoaEditar) {
+    	System.out.println("funciona edita");
+    	
+    	FacesContext.getCurrentInstance().getExternalContext()
+    	.getFlash().put("pessoaEditar", pessoaEditar);
+    	
+    	return "/pessoa/EditaPessoa?faces-redirect=true";
+    	
+    }
+    
+    
 
-
-	
-	@Transactional
+    @Transactional
 	public void removePessoa(Pessoa p) {
 		dao.removePesssoa(p);
 		

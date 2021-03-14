@@ -31,6 +31,17 @@ public class Pessoa implements Serializable {
 
 	@OneToMany(mappedBy = "pessoa",cascade = CascadeType.ALL,fetch = FetchType.EAGER)
 	List<Endereco> end = new ArrayList<>();
+	
+	public Pessoa() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Pessoa(String name, Integer numeroTelefone, String email) {
+		super();
+		this.name = name;
+		this.numeroTelefone = numeroTelefone;
+		this.email = email;
+	}
 
 	public Long getIdPessoa() {
 		return idPessoa;

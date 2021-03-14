@@ -47,8 +47,9 @@ public class PessoaBean {
 	public void teste() {
 		System.out.println("funciona");
 	}
-	public void AddNovoEndereco() {
-		
+	public void AddNovoEndereco(Pessoa p) {
+		System.out.println("funciona");
+		this.pessoa = p;
 	}
 
 	public Pessoa getPessoa() {
