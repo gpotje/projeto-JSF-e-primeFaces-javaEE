@@ -40,6 +40,9 @@ public class PessoaBean {
 	public void teste() {
 		System.out.println("funciona");
 	}
+	public void teste2(Pessoa p) {
+		System.out.println("funciona");
+	}
 
 	public Pessoa getPessoa() {
 		return pessoa;

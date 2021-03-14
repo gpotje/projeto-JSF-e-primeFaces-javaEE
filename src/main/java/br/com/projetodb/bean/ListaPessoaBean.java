@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.enterprise.inject.Model;
 import javax.inject.Inject;
+import javax.transaction.Transactional;
 
 import br.com.projetodb.dao.dadoDao;
 import br.com.projetodb.modelo.Pessoa;
@@ -27,5 +28,15 @@ public class ListaPessoaBean {
 		this.pessoas = pessoas;
 	}
     
-    
+	public void teste2(Pessoa p) {
+		System.out.println("funcionaddddddddddddddddddddddddddddddddddddddd");
+	}
+	
+	@Transactional
+	public void removePessoa(Pessoa p) {
+		dao.removePesssoa(p);
+		
+	}
+	
+
 }
