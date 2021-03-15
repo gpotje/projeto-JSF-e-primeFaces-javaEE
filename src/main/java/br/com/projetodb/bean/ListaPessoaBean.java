@@ -1,10 +1,12 @@
 package br.com.projetodb.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.enterprise.inject.Model;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.transaction.Transactional;
 
 import br.com.projetodb.dao.dadoDao;
@@ -12,8 +14,12 @@ import br.com.projetodb.modelo.Endereco;
 import br.com.projetodb.modelo.Pessoa;
 
 
-@Model
-public class ListaPessoaBean {
+@Named
+@ViewScoped
+public class ListaPessoaBean  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+
 	@Inject
 	private dadoDao dao;
 	
@@ -34,10 +40,18 @@ public class ListaPessoaBean {
 
 
 	@Transactional
-	public void removePessoa(Pessoa p) {
+	public String removePessoa(Pessoa p) {
 		dao.removePesssoa(p);
-
+		return "/pessoa/listarPessoa?faces-redirect=true";
 	}
+	
+	public void AlteraPessoa(Pessoa p) {
+		
+		System.out.println("deu certo");
+		this.pessoa = p;
+		
+	}
+	
 
 	public Pessoa getPessoa() {
 		return pessoa;

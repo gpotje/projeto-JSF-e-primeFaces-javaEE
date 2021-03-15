@@ -53,15 +53,6 @@ public class PessoaBean implements Serializable {
 		this.endereco = new Endereco();
 	}
 
-	public void teste() {
-		System.out.println("funciona");
-	}
-
-	public void AddNovoEndereco(Pessoa p) {
-		System.out.println("funciona");
-		this.pessoa = p;
-	}
-
 	public Pessoa getPessoa() {
 		return pessoa;
 	}

@@ -7,6 +7,48 @@
 
 <h:head></h:head>
 
+	<h:form id="cadastroPessoa">
+		<p:fieldset >
+			<h:panelGrid columns="3" >
+
+				<p:outputLabel value="name:" />
+				<p:inputText value="#{pessoaBean.pessoa.name}" required="true"
+					id="name" />
+				<p:message for="name" id="messagename" />
+
+				<p:outputLabel value="Email:" />
+				<p:inputText value="#{pessoaBean.pessoa.email}" required="true"
+					id="email" />
+				<p:message for="email" id="messageemail" />
+
+				<p:outputLabel value="Telefone:" />
+				<p:inputText value="#{pessoaBean.pessoa.numeroTelefone}"
+					required="true" id="telefone" />
+				<p:message for="telefone" id="messagetelefone" />
+				
+				<p:outputLabel value="Logradouro:" />
+				<p:inputText value="#{pessoaBean.endereco.logradouro}"
+					required="true" id="logradouro" />
+				<p:message for="logradouro" id="messagelogradouro" />
+
+				<p:outputLabel value="CEP:" />
+				<p:inputText value="#{pessoaBean.endereco.cep}" required="true"
+					id="cep" />
+				<p:message for="cep" id="messagecep" />
+
+				<p:outputLabel value="N °:" />
+				<p:inputText value="#{pessoaBean.endereco.numeroLocalidade}"
+					required="true" id="n" />
+				<p:message for="n" id="messagen" />
+
+
+					<p:commandButton value="Salvar fomulario"
+					action="#{pessoaBean.salvarFomulario}" update="@form"
+					process="@form" />
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>				
+				
 <h:body>  
  	<h:form id="listaPessoa">
 		<p:dataTable value="#{listaPessoaBean.pessoas}" var="pessoa"
@@ -55,16 +97,14 @@
 
 			<p:column>
 				<p:commandButton value="Remove "
-					action="#{listaPessoaBean.removePessoa(pessoa)}" update="@form"
-					process="@form" />
+					action="#{listaPessoaBean.removePessoa(pessoa)}"  />
 			</p:column>
 
 			
 			<p:column> 
 				<p:commandButton value="Altera" 
-					action="#{listaPessoaBean.alteraPessoa(pessoa)}" update="@form" 
-					process="@form" /> 
-		</p:column> 
+					action="#{listaPessoaBean.AlteraPessoa(pessoa)}" /> 
+			</p:column> 
 			
 		</p:dataTable>
 	</h:form>
