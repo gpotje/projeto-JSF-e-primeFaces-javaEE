@@ -31,8 +31,7 @@ public class dadoDao {
 	public Pessoa listarPorId(Long id) {
 		Pessoa p = manager.find(Pessoa.class, id);
 		return p;
-
-	}
+}
 
 	public List<Pessoa> listar() {
 		String jpql = "select p from Pessoa p";

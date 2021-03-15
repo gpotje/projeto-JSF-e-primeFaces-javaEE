@@ -24,10 +24,8 @@ public class PessoaBean implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private Pessoa pessoa = new Pessoa();
-
 	private Endereco endereco = new Endereco();
-	
-	private List<Endereco> end = new ArrayList<>();
+	private List<Endereco> enderecoLista = new ArrayList<>();
 
 	@Inject
 	private dadoDao dao;
@@ -37,19 +35,17 @@ public class PessoaBean implements Serializable {
 		
 		dao.salvarPessoa(pessoa);
 		
-		for (Endereco endereco : end) {
+		for (Endereco endereco : enderecoLista) {
 			endereco.setPessoa(pessoa);
 			dao.salvarEndereco(endereco);
 			System.out.println("endereco");
 		}
-
 		return "/pessoa/listarPessoa?faces-redirect=true";
 
 	}
-
 	
 	public void AddEndereco() {
-		end.add(this.endereco);
+		enderecoLista.add(this.endereco);
 		this.endereco = new Endereco();
 	}
 
