@@ -8,9 +8,7 @@
 <h:head></h:head>
 
 <h:body>  
- 
-
-	<h:form id="listaPessoa">
+ 	<h:form id="listaPessoa">
 		<p:dataTable value="#{listaPessoaBean.pessoas}" var="pessoa"
 			id="pessoaendereco">
 			
@@ -26,11 +24,7 @@
 				<f:facet name="header">N° Telefone:</f:facet>
 				<h:outputText value="#{pessoa.numeroTelefone}" />
 			</p:column>
-			<p:column>
-				<f:facet name="header">Email:</f:facet>
-				<h:outputText value="#{pessoa.email}" />
-			</p:column>
-
+			
 			<p:column>
 				<f:facet name="header">Cep:</f:facet>
 				<ui:repeat var="pessoalist" value="#{pessoa.end}">
@@ -53,9 +47,9 @@
 			</h:column>
 
 			<p:column>
-				<f:facet name="header">Cep:</f:facet>
+				<f:facet name="header">N°:</f:facet>
 				<ui:repeat var="pessoalist" value="#{pessoa.end}">
-					<h:outputText value="#{pessoalist.cep}" />
+					<h:outputText value="#{pessoalist.numeroLocalidade}" />
 				</ui:repeat>
 			</p:column>
 

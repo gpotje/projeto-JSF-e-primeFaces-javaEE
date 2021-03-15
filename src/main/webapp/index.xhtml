@@ -8,50 +8,76 @@
 <h:head></h:head>
 
 <h:body>
-	
+
 	<h:form id="cadastroPessoa">
 		<p:fieldset legend="Cadastro Pessoa">
-			<h:panelGrid columns="3">
-			
+			<h:panelGrid columns="3" >
+
 
 				<p:outputLabel value="name:" />
 				<p:inputText value="#{pessoaBean.pessoa.name}" required="true"
 					id="name" />
 				<p:message for="name" id="messagename" />
-				
+
 				<p:outputLabel value="Email:" />
 				<p:inputText value="#{pessoaBean.pessoa.email}" required="true"
 					id="email" />
 				<p:message for="email" id="messageemail" />
-				
+
 				<p:outputLabel value="Telefone:" />
-				<p:inputText value="#{pessoaBean.pessoa.numeroTelefone}" required="true"
-					id="telefone" />
+				<p:inputText value="#{pessoaBean.pessoa.numeroTelefone}"
+					required="true" id="telefone" />
 				<p:message for="telefone" id="messagetelefone" />
 				
-				
-					<p:outputLabel value="Logradouro:" />
-				<p:inputText value="#{pessoaBean.endereco.logradouro}" required="true"
-					id="logradouro" />
+<!-- 				<p:outputLabel value="Logradouro:" /> -->
+<!-- 				<p:inputText value="#{pessoaBean.endereco.logradouro}" -->
+<!-- 					required="true" id="logradouro" /> -->
+<!-- 				<p:message for="logradouro" id="messagelogradouro" /> -->
+
+<!-- 				<p:outputLabel value="CEP:" /> -->
+<!-- 				<p:inputText value="#{pessoaBean.endereco.cep}" required="true" -->
+<!-- 					id="cep" /> -->
+<!-- 				<p:message for="cep" id="messagecep" /> -->
+
+<!-- 				<p:outputLabel value="N °:" /> -->
+<!-- 				<p:inputText value="#{pessoaBean.endereco.numeroLocalidade}" -->
+<!-- 					required="true" id="n" /> -->
+<!-- 				<p:message for="n" id="messagen" /> -->
+
+
+					<p:commandButton value="Salvar fomulario"
+					action="#{pessoaBean.salvarFomulario}" update="@form"
+					process="@form" />
+			</h:panelGrid>
+		</p:fieldset>
+	</h:form>
+	<h:form id="NovoEndereco">
+		<p:fieldset legend="ADD Endereco">
+			<h:panelGrid columns="3">
+
+				<p:outputLabel value="Logradouro:" />
+				<p:inputText value="#{pessoaBean.endereco.logradouro}"
+					required="true" id="logradouro" />
 				<p:message for="logradouro" id="messagelogradouro" />
-				
+
 				<p:outputLabel value="CEP:" />
 				<p:inputText value="#{pessoaBean.endereco.cep}" required="true"
 					id="cep" />
 				<p:message for="cep" id="messagecep" />
-				
+
 				<p:outputLabel value="N °:" />
-				<p:inputText value="#{pessoaBean.endereco.numeroLocalidade}" required="true"
-					id="n" />
+				<p:inputText value="#{pessoaBean.endereco.numeroLocalidade}"
+					required="true" id="n" />
 				<p:message for="n" id="messagen" />
-					
-				
-			<p:commandButton value="Salvar fomulario"
-					action="#{pessoaBean.salvarFomulario}"  update="@form" process="@form"/>
+
+				<p:commandButton value="Salvar fomulario"
+					action="#{pessoaBean.AddEndereco}" update="@form" process="@form" />
 			</h:panelGrid>
 		</p:fieldset>
 	</h:form>
-	
+
+
+
 
 </h:body>
 
